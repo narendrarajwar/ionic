@@ -1,0 +1,82 @@
+<ion-modal-view>
+	<ion-header-bar class="bar-dark">
+    	<h1 class="title">ADD ORDER</h1>
+    	<button class="button button-clear button-positive" ng-click="closeAddOrder()">
+    	<i class="ion-android-close"></i></button>
+    </ion-header-bar>
+    <ion-content padding="true">
+    	<div class="card" ng-if="errormsg">
+	  			<div class="item item-text-wrap" ng-if="errormsg">{{errormsg}}</div>
+		</div>
+		<div class="card" ng-if="successmsg">
+	  			<div class="item item-text-wrap">{{successmsg}}</div>
+		</div>
+		<form ng-submit="saveNewOrder(newOrderForm)" name="newOrderForm" novalidate>
+			<div class="list list-inset">
+				<div class="item item-divider">
+					<div class="list">
+						<div class="item item-divider">Order Name</div>
+						<div class="item item-input-inset">
+							<label class="item-input-wrapper">					
+	  							<input type="text" placeholder="Order Name Here" ng-model="newOrder.field_order_name"required />
+	  						</label>
+	  					</div>
+	  				</div>
+	  				<div class="list">
+	  					<div class="item item-divider">Order Notes</div>
+						<div class="item item-input-inset">
+							<label class="item-input-wrapper">					
+	  							<input type="text" ng-model="newOrder.field_order_notes" placeholder="Order Notes Here" required />
+	  						</label>
+	  					</div>
+	  				</div>
+  				</div>
+  			</div>
+			<div class="list list-inset">
+				<div class="item item-divider">
+					<div class="list">
+						<div class="item item-divider">Product Name</div>
+						<div class="item item-input-inset">
+							<label class="item-input-wrapper">					
+	  							<input type="text" ng-model="product.name" placeholder="Product Name Here" required />
+	  						</label>
+	  					</div>
+	  				</div>
+	  				<div class="list">
+	  					<div class="item item-divider">Quantity</div>
+						<div class="item item-input-inset">
+							<label class="item-input-wrapper">					
+	  							<input type="text" ng-model="product.qty" placeholder="Quantity" required />
+	  						</label>
+	  					</div>
+	  				</div>
+	  				<div class="list">
+						<label class="item item-divider item-select">Unit
+						<select ng-model="product.unit" ng-options="unit.label for unit in productUnit"></select>
+	  					</label>
+	  				</div>
+  				</div>
+			</div>
+
+			<div class="list list-inset">
+	            <div class="item item-divider">
+	    	        <button class="button button-block button-positive" type="button" ng-click="addOrderTo()">ADD</button>
+	    	        <div class="list">
+	    	        	<div class="item item-button-right" ng-repeat="value in AllOrders">
+		    	        	<i class="icon ion-home"></i>
+	      					<h2>{{value.name}}</h2>
+	      					<p>Qty: {{value.quantity}}</p>
+	      					<p ng-switch="value.unit">Unit:
+	      						<strong ng-switch-when="1">Kg</strong>
+	      						<strong ng-switch-when="2">Ltr</strong>
+	      						<strong ng-switch-when="3">Mtr</strong>
+	      					</p>
+	      					<button class="button button-positive" type="button" ng-click="remItem($index)">X</button>
+	    				</div>
+					</div>
+	    	        <button class="button button-block button-calm" type="submit">Submit For Quote</button>
+        	    </div>
+	        </div>
+		</form>
+    </ion-content>
+</ion-modal-view>

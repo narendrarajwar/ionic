@@ -1,0 +1,38 @@
+<nav-page>
+	<ion-modal-view>
+		<ion-header-bar class="bar-stable">
+      		<h1 class="title">Register Here</h1>
+      		<button class="button button-clear button-positive" ng-click="closeNewAccountForm()">
+      		<i class="ion-android-close"></i></button>
+    	</ion-header-bar>
+		<ion-content padding="true">
+			<div class="card" ng-if="errormsg">
+	  			<div class="item item-text-wrap" ng-if="errormsg">{{errormsg}}</div>
+			</div>
+			<div class="card" ng-if="successmsg">
+	  			<div class="item item-text-wrap">{{successmsg}}</div>
+			</div>
+			<form name="newUser" ng-submit="doRegister(newUser)" novalidate>
+				<ion-list>
+				  <ion-item class="item-floating-label">
+				    <span class="input-label">First Name</span>
+				    <input type="text" placeholder="First Name" required> 
+				  </ion-item>
+				  <ion-item class="item-floating-label">
+				    <span class="input-label">Last Name</span>
+				    <input type="text" placeholder="Last Name" required>
+				  </ion-item>
+				  <ion-item class="item-floating-label">
+				    <span class="input-label">Email</span>
+				    <input type="email" placeholder="Email" required> 
+				  </ion-item>
+				  <ion-item class="item-floating-label">
+				    <span class="input-label">Phone/Mobile</span>
+				    <input type="text" placeholder="Phone/Mobile" required> 
+				  </ion-item>
+				</ion-list>
+				<button class="button button-block button-calm" type="submit">Register</button>
+			</form>
+		</ion-content>
+	</ion-modal-view>
+</nav-page>

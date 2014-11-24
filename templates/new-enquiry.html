@@ -1,0 +1,70 @@
+<ion-modal-view>
+	<ion-header-bar class="bar-dark">
+    	<h1 class="title">Enquiry</h1>
+    	<button class="button button-clear button-positive" ng-click="closeNewEnquiry()">
+    	<i class="ion-android-close"></i></button>
+    </ion-header-bar>
+    <ion-content padding="true">
+    	<div class="card" ng-if="errormsg">
+	  			<div class="item item-text-wrap" ng-if="errormsg">{{errormsg}}</div>
+		</div>
+		<div class="card" ng-if="successmsg">
+	  			<div class="item item-text-wrap">{{successmsg}}</div>
+		</div>
+		<form novalidate>
+			<div class="list list-inset">
+			  <div class="item item-divider">
+			  	<div class="list">
+			    	<div class="item item-divider">To</div>
+			    	<div class="item item-input-inset">
+						<label class="item-input-wrapper">
+			    			<select required> </select>
+			    		</label>
+			    	</div>
+			    </div>
+			  </div>
+			</div>
+			<div class="list list-inset">
+			  <div class="item item-divider">
+			  	<div class="list">
+			    	<div class="item item-divider">Subject</div>
+			    	<div class="item item-input-inset">
+						<label class="item-input-wrapper">
+			    			<textarea rows="3" cols="10" required ></textarea> 
+			    		</label>
+			    	</div>
+			    </div>
+			  </div>
+			</div>
+			<div class="list list-inset">
+			  <div class="item item-divider">
+			  	<div class="list">
+			    	<div class="item item-divider">Attachment</div>
+			    	<div class="item item-input-inset">
+						<label class="item-input-wrapper">
+			    			<input type="file" required /> 
+			    		</label>
+			    	</div>
+			    </div>
+			  </div>
+			</div>
+			<div class="list list-inset">
+			  <div class="item item-divider">
+			  	<div class="list">
+			    	<div class="item item-divider">Message</div>
+			    	<div class="item item-input-inset">
+						<label class="item-input-wrapper">
+			    			<textarea rows="5" cols="25" required></textarea>
+			    		</label>
+			    	</div>
+			    </div>
+			  </div>
+			</div>
+			<div class="list list-inset"> 
+				<div class="item item-divider">   	
+					<button class="button button-block button-calm" type="submit">Send Enquiry</button>
+				</div>
+			</div>
+		</form>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,25 @@
+<ion-popover-view>
+	<ion-header-bar>
+      <h1 class="title">Enquiry Reply</h1>
+      <button class="button button-clear button-positive" ng-click="closeEnqRepPopUp()">
+    	<i class="ion-android-close"></i></button>
+    </ion-header-bar>
+    <ion-content padding="true">
+		<form name="replyFrm" ng-submit="sendEnquiry(replyFrm)" novalidate>
+			<div class="card" ng-if="errormsg">
+				<div class="item item-text-wrap" ng-if="errormsg">{{errormsg}}</div>
+			</div>
+			<div class="card" ng-if="successmsg">
+				<div class="item item-text-wrap">{{successmsg}}</div>
+			</div>
+			<div class="list list-inset">
+				<div class="item">
+					<textarea rows=4 cols="20" ng-model="enqReply.field_message" required/ ></textarea>
+				</div>
+				<div class="item">
+					<button class="button button-block button-calm" type="submit" >Send</button>
+				</div>
+			</div>
+		</form>
+	</ion-content>
+</ion-popover-view>

@@ -1,0 +1,10 @@
+/* Empty. Add your own CSS if you like */
+.modal{
+  top: 10% !important;
+  right: 10% !important;
+  bottom: 10% !important;
+  left: 10% !important;
+  overflow: visible !important;
+  min-height: 340px !important;
+  width: 70% !important;
+}

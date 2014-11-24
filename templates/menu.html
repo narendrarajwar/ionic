@@ -1,0 +1,30 @@
+<ion-side-menus>
+
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-dark">
+      <ion-nav-buttons side="right">
+        <button class="button button-icon ion-logout" ng-click="showMenu()"><i class="ion-person-add"></i> {{user.profile.field_first_name}} <i class="ion-arrow-down-b"></i></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    
+     <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+
+  </ion-side-menu-content>
+
+
+  <!-- Left menu -->
+  <ion-side-menu side="left">
+   	<ion-header-bar class="bar-dark">
+     	<h1 class="title"><i class="ion-grid"></i> Menu</h1>
+   	</ion-header-bar>
+  	<ion-content>
+  		<ion-list>
+  			<ion-item nav-clear menu-close href="#/app/home"><i class="ion-home"></i> Home</ion-item>
+  			<ion-item nav-clear menu-close href="#/app/orders"><i class="ion-ios7-cart"></i> Orders</ion-item>
+  			<ion-item nav-clear menu-close href="#/app/enquiry"><i class="ion-android-forums"></i> Enquiries</ion-item>
+  			<ion-item nav-clear menu-close href="#app/invoice"><i class="ion-android-note"></i> Invoice History</ion-item>
+        <ion-item nav-clear menu-close href="#app/delegate"><i class="ion-android-note"></i> Delegate</ion-item>
+  		</ion-list>
+  	</ion-content>
+  </ion-side-menu>
+</ion-side-menus>

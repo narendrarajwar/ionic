@@ -1,0 +1,14 @@
+<nav-page>
+<div class="list list-inset">
+	<div class="item item-divider"><i class="ion-android-data"></i> RECENT NEWS</div>
+	<div ng-if="loading1"><i class="ion-loading-a"></i> </div>
+    <div class="list list-inset">
+        <ion-item ng-repeat="news in recentNews">
+        	<ion-list>
+            <div class="item item-divider"><i class="ion-android-arrow-forward"></i> {{news.field_title}}</div>
+            <div class="item">{{news.field_news}}<br/>{{news.created*1000|date:"medium"}}</div>
+            </ion-list>
+        </ion-item>
+    </div>
+</div>
+</nav-page>

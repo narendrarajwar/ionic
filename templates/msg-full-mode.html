@@ -1,0 +1,41 @@
+<ion-view title="Enquiry Detail">
+	<ion-nav-buttons side="left">
+    	<button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+ 	 </ion-nav-buttons>
+  	<ion-content class="has-header">
+  		<div class="list list-inset" ng-if="message">
+  			<div class="item item-divider">{{message.field_subject}}</div>
+  			<div class="item">
+	  			<div class="list">
+	  				<div class="item item-divider" ng-if="message.uid == user.uid && message.field_to.target_id == user.uid"><strong>Me</strong>to Me</div>
+
+	  				<div class="item item-divider" ng-if="message.uid == user.uid && message.field_to.target_id !== user.uid"><strong>Me</strong> to {{setUserName(message.field_to.target_id)}}</div>
+
+	  				<div class="item item-divider" ng-if="message.uid !== user.uid && message.field_to.target_id == user.uid"><strong>{{setUserName(message.field_to.target_id)}}</strong> to Me</div>
+	  				
+	  				<div class="item">{{message.field_message}}<br/>{{message.created*1000|date:"medium"}}</div>
+	  				<div class="item">
+	  					<div class="list" ng-repeat="thread in threadMsg">
+	  						<div class="item item-divider" ng-if="message.uid == user.uid && message.field_to.target_id == user.uid"><strong>Me</strong>to Me</div>
+
+			  				<div class="item item-divider" ng-if="message.uid == user.uid && message.field_to.target_id !== user.uid"><strong>Me</strong> to {{setUserName(message.field_to.target_id)}}</div>
+
+			  				<div class="item item-divider" ng-if="message.uid !== user.uid && message.field_to.target_id == user.uid"><strong>{{setUserName(message.field_to.target_id)}}</strong> to Me</div>
+	  						<div class="item">{{thread.field_message}}<br/>{{thread.created*1000|date:"medium"}}</div>
+	  					</div>
+	  				</div> 
+	  			</div>
+	  		</div>
+	  		<div class="item">
+	  			<button class="button button-block button-positive" type="button" ng-click="openEnqRepPopUp($event)">Reply</button>
+	  			<!--- <button class="button button-block button-positive" type="button" ng-click="enquiryReply()" ng-if="!isReply">Reply</button>
+	  			<button class="button button-block button-positive" type="button" ng-click="enquiryReply()" ng-if="isReply">Cancel Reply</button> -->
+	  		</div>
+	  
+	  		<!--<div class="item" ng-if="isReply">
+	  			<div class="list" ng-include src="'templates/enquiry-reply.html'"></div>
+	  		</div>-->
+  		</div>
+
+  	</ion-content>
+</ion-view>

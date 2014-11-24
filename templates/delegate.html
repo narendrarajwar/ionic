@@ -1,0 +1,27 @@
+<ion-view title="Delegate">
+	<ion-nav-buttons side="left">
+    	<button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  	</ion-nav-buttons>
+  	<ion-content class="has-header" delegate-handle="thisScroll">
+  		<ion-refresher on-refresh></ion-refresher>
+		<ion-list>
+			<ion-item><button class="button button-block button-calm" ng-click="openPopover($event)">Open Popover</button>
+			<ion-item><button ng-click="scrollTop()">Scroll to Bottom!</button></ion-item>
+			</ion-item>
+	    	<ion-item ng-repeat="i in items">{{i}}</ion-item>
+
+		</ion-list>
+	</ion-content>
+</ion-view>
+<script id="my-popover.html" type="text/ng-template">
+  <ion-popover-view>
+    <ion-header-bar>
+      <h1 class="title">My Popover Title</h1>
+      <button class="button button-clear button-positive" ng-click="closePopover()">
+    	<i class="ion-android-close"></i></button>
+    </ion-header-bar>
+    <ion-content>
+      Hello!
+    </ion-content>
+  </ion-popover-view>
+</script>

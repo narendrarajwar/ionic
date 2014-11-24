@@ -1,0 +1,38 @@
+<ion-view title="Orders">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <ion-refresher on-refresh="laodOrders()"></ion-refresher>
+        <div class="list list-inset">
+    		<button class="button button-block button-positive" ng-click="openNewOrder()" type="button"><i class="ion-android-add"></i> Add Order</button>
+    	
+    		<a class="button button-block button-positive" href="#/app/orders/order-detail/{{orders[0].id}}"><i class="ion-eye"></i> View Recent Order Detail</a>
+        </div>
+    	
+    <div class="list">
+        <div ng-if="loading"><i class="ion-loading-a"></i> </div>
+       	<ion-item class="item-divider">
+        	<div class="row">
+    	    	<div class="col col-10">#</div>
+        		<div class="col col-33">Title</div>
+        		<div class="col col-10">$</div>
+    	    	<div class="col col-20">Stat</div>
+        		<div class="col col-33">Date</div>
+        	</div>
+    	</ion-item>
+        <ion-item ng-repeat="order in orders" ng-switch="order.field_status">
+        	<div class="row">
+    	    	<div class="col col-10">{{order.id}}</div>
+        		<div class="col col-33">{{order.field_order_name}}</div>
+        		<div class="col col-10">$0</div>
+    	    	<div class="col col-20" ng-switch-when="1">Draft</div>
+    	    	<div class="col col-20" ng-switch-when="2">Submitted</div>
+    	    	<div class="col col-20" ng-switch-when="3">Quoted</div>
+    	    	<div class="col col-20" ng-switch-when="4">Approved</div>
+        		<div class="col col-33">{{order.created*100|date:"short"}}</div>
+        	</div>
+        </ion-item>
+    </div>
+  </ion-content>
+</ion-view>

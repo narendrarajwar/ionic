@@ -1,0 +1,18 @@
+
+	  	<!-- Center content -->
+  	<ion-view title="Home">
+      <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>   
+      </ion-nav-buttons>    
+	  	<ion-content class="has-header">
+        <ion-refresher on-refresh="loadHome()"></ion-refresher>
+        <div ng-show="!recentOrders.length">
+          <center><h4>Pull and release to Refresh</h4></center>
+        </div>
+        
+
+        <ion-list ng-include src="'templates/notification.html'"></ion-list>
+        <ion-list ng-include src="'templates/recent-news.html'"></ion-list>
+        <ion-list ng-include src="'templates/recent-order.html'"></ion-list>
+      </ion-content>
+	  </ion-view>

@@ -1,0 +1,28 @@
+<ion-view>
+  <ion-content padding="true" class="has-header">
+	<div class="card" ng-if="errormsg">
+	  <div class="item item-text-wrap" >{{errormsg}}</div>
+	</div>
+
+	<form name="loginForm" ng-submit="doLogin(loginForm)" novalidate>
+		<ion-list>
+		  <div ng-if="loading"><i class="ion-loading-a"></i></div>
+		  <ion-item class="item-floating-label">
+		    <span class="input-label">User Name</span>
+		    <input type="text" placeholder="username" ng-model="credentials.username" required> 
+		  </ion-item>
+		  <ion-item class="item-floating-label">
+		    <span class="input-label">Password</span>
+		    <input type="password" placeholder="password" ng-model="credentials.password" required>
+		  </ion-item>
+		</ion-list>
+		<ion-checkbox ng-model="rememberme" ng-click="setRememberme()">Remember Me</ion-checkbox>
+		<button class="button button-block button-positive" type="submit"><i class="ion-log-in"></i> Login</button>
+	</form>
+	
+	<button class="button button-clear button-assertive" ng-click="openForgetForm()">Forgot Password ?<i class="ion-sad"></i></button>
+	
+	<button class="button button-block button-calm" type="submit" ng-click="openNewAccountForm()"><i class="ion-android-contact"></i> Create Account</button>
+	
+  </ion-content>
+</ion-view>

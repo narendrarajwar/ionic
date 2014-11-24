@@ -1,0 +1,28 @@
+<ion-view title="Order Detail">
+	<ion-nav-buttons side="left">
+    	<button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+ 	</ion-nav-buttons>
+ 	<ion-content class="has-header">
+	 	<div class="list list-inset">
+	    	<button class="button button-block button-positive" ng-click="openNewOrder()" type="button"><i class="ion-android-add"></i> Add Order</button>
+	    </div>
+	    <div class="row responsive-sm">
+			<div class="col col-50" ng-include src="'templates/recent-order.html'"></div>
+			<!--<div class="col col-50">
+				<div class="list">
+					<div class="item" ng-repeat="value in orders">
+						<div class="list">
+							<h2>{{value.field_item_name}}</h2>
+							<p>Qty: {{value.field_quantity}}</p>
+							<p ng-switch="value.field_units">Unit:
+								<strong ng-switch-when="1">Kg</strong>
+								<strong ng-switch-when="2">Ltr</strong>
+								<strong ng-switch-when="3">Mtr</strong>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>-->
+		</div>
+    </ion-content>
+</ion-view>
